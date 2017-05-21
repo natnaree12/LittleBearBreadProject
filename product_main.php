@@ -15,26 +15,30 @@
 		  	<b>เพิ่มเมนูใหม่</b>
 		  </div>
 		  <div class="panel-body">
-			<form>
+			<form action="/add_product.php" method="post">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">ชื่อขนมปัง</label>
-			    <input type="text" class="form-control" id="product_name">
+			    <input type="text" name="product_name" class="form-control" id="product_name">
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputPassword1">ประเภท</label>
 			    <!-- <input type="text" class="form-control" id="type_name" placeholder="Password"> -->
-			    <select class="form-control">
-				  <option>1</option>
-				  <option>2</option>
-				  <option>3</option>
-				  <option>4</option>
-				  <option>5</option>
+			    <select name="product_type" class="form-control">
+			    	<?php
+			    		$sql = "SELECT * FROM product_type";
+						$result = $conn->query($sql);
+
+						while($row = $result->fetch_assoc()){
+							echo "<option>".$row["product_type_name"]."</option>";
+						}
+			    	 ?>	
 				</select>
 			  </div>
 		  </div>
 		  <div class="panel-footer">
 			<center>
-		    	<button type="button" class="btn btn-primary">บันทึก</button> <!-- submit -->
+				<input type="submit" value="บันทึก" class="btn btn-primary">
+		    	<!-- <button type="button" class="btn btn-primary">บันทึก</button> <!-- submit -->
 				<button type="button" class="btn btn-default">ยกเลิก</button>
 			</center>
 		  </div>

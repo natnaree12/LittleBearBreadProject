@@ -1,7 +1,8 @@
 <?php
 	include 'connect.php';
 
-	$sql = "SELECT * FROM product_list";
+	$product_id = $_GET['id'];
+	$sql = "SELECT * FROM recipe_info WHERE product_id = $product_id";
 	$result = $conn->query($sql);
 ?>
 
@@ -13,6 +14,7 @@
 				<tr>
 					<th>ลำดับ</th>
 					<th>รายการ</th>
+					<th>จำนวน</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -21,9 +23,9 @@
 			while($row = $result->fetch_assoc()){
 				echo "<tbody>";
 				echo "<td>".$count."</td>";
-				echo "<td>".$row["product_name"]."</td>";
-				// echo "<td>".$row["mat_type_name"]."</td>";
-				echo "<td><center><a class='btn btn-info' href='/recipe_info.php?id=".$row["product_id"]."' role='button'>รายละเอียด</a><center></td>";
+				echo "<td>".$row["recipe_name"]."</td>";
+				echo "<td>".$row["recipe_amount"]."</td>";
+				echo "<td><center><a class='btn btn-info' href='/recipe_list.php' role='button'>รายละเอียด</a><center></td>";
 				echo "</tbody>";
 				$count++;
 			}
