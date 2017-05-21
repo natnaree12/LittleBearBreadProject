@@ -1,0 +1,95 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: May 21, 2017 at 05:10 AM
+-- Server version: 5.6.33
+-- PHP Version: 5.6.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `LittleBearBread`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `material_list`
+--
+
+CREATE TABLE `material_list` (
+  `mat_id` int(11) NOT NULL,
+  `mat_name` varchar(20) NOT NULL,
+  `mat_type` int(11) NOT NULL,
+  `amount_actual` int(11) NOT NULL,
+  `amount_expect` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `material_list`
+--
+
+INSERT INTO `material_list` (`mat_id`, `mat_name`, `mat_type`, `amount_actual`, `amount_expect`) VALUES
+(1, 'ทดสอบ', 1, 100, 200);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `material_type`
+--
+
+CREATE TABLE `material_type` (
+  `mat_type_id` int(11) NOT NULL,
+  `mat_type_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `material_type`
+--
+
+INSERT INTO `material_type` (`mat_type_id`, `mat_type_name`) VALUES
+(1, 'ทดสอบ');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `material_list`
+--
+ALTER TABLE `material_list`
+  ADD PRIMARY KEY (`mat_id`),
+  ADD KEY `mat_type` (`mat_type`);
+
+--
+-- Indexes for table `material_type`
+--
+ALTER TABLE `material_type`
+  ADD PRIMARY KEY (`mat_type_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `material_list`
+--
+ALTER TABLE `material_list`
+  MODIFY `mat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `material_type`
+--
+ALTER TABLE `material_type`
+  MODIFY `mat_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `material_list`
+--
+ALTER TABLE `material_list`
+  ADD CONSTRAINT `material_list_ibfk_1` FOREIGN KEY (`mat_type`) REFERENCES `material_type` (`mat_type_id`);
