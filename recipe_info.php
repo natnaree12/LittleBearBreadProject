@@ -14,13 +14,15 @@
 		  <div class="panel-heading">
 		  	<b>เพิ่มส่วนผสมใหม่</b>
 		  </div>
-		  <!-- recipe name -->
+		  
 		  <div class="panel-body">
-			<form action="/add_recipe.php" method="post">
+			<form action="/add_recipe.php?id=<?php echo $_GET['id']; ?>" method="post">
+			<!-- recipe name -->
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">ชื่อส่วนผสม</label>
 			    <input type="text" name="recipe_name" class="form-control" id="recipe_name">
 			  </div>
+			  <!-- amount -->
 			  <div class="form-group">
 			    <label for="exampleInputPassword1">จำนวน</label>
 			    <input type="text" name="recipe_amount" class="form-control" id="recipe_amount">
