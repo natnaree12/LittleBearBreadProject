@@ -1,0 +1,66 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: May 21, 2017 at 09:17 AM
+-- Server version: 5.6.33
+-- PHP Version: 5.6.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `LittleBearBread`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recipe_info`
+--
+
+CREATE TABLE `recipe_info` (
+  `recipe_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `recipe_amount` int(11) NOT NULL,
+  `recipe_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `recipe_info`
+--
+
+INSERT INTO `recipe_info` (`recipe_id`, `product_id`, `recipe_amount`, `recipe_name`) VALUES
+(1, 2, 20, 'ขนมปัง(เจ)'),
+(7, 2, 20, 'ไส้กรอก');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `recipe_info`
+--
+ALTER TABLE `recipe_info`
+  ADD PRIMARY KEY (`recipe_id`,`product_id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `recipe_info`
+--
+ALTER TABLE `recipe_info`
+  MODIFY `recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `recipe_info`
+--
+ALTER TABLE `recipe_info`
+  ADD CONSTRAINT `recipe_info_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product_list` (`product_id`);
