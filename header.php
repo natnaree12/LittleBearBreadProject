@@ -34,7 +34,7 @@
 		<div class="col-md-6">
 			<ul class="nav nav-tabs">
 			  <li role="presentation"><a href="">หน้าหลัก</a></li>
-			  <li role="presentation"><a href="/order_main.php">รายการ</a></li>
+			  <li role="presentation"><a href="/order_main.php">ออเดอร์</a></li>
 			  <li role="presentation"><a href="/material_main.php">สั่งซื้อวัตถุดิบ</a></li>
 			  <li role="presentation"><a href="/managemat_main.php">จัดการวัตถุดิบ</a></li>
 			  <li role="presentation"><a href="/product_main.php">จัดการสินค้า</a></li>
